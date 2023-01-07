@@ -336,6 +336,7 @@ void rremove(char filepath[], int pos1, int pos2, int size, char f){
     }
 }
 
+//this has some bugs
 void ccopy(char filepath[], int pos1, int pos2, int size, char f){
     if(filepath[0] == '"' && filepath[1] != '/'){
         int i = 0;
