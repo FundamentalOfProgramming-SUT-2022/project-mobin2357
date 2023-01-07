@@ -399,58 +399,7 @@ void ccopy(char filepath[], int pos1, int pos2, int size, char f){
     }
 }
 
-void ppaste(char filepath[], int pos1, int pos2){
-    if(filepath[0] == '"' && filepath[1] != '/'){
-        int i = 0;
-        while(filepath[i + 1] != '"'){
-            filepath[i] = filepath[i + 1];
-            i++;
-        }
-        filepath[i] = '\0';
-    }
-    else if(filepath[0] == '"'){
-        int i = 0;
-        while(filepath[i + 2] != '"'){
-            filepath[i] = filepath[i + 2];
-            i++;
-        }
-        filepath[i] = '\0';
-    }
-    else if(filepath[0] == '/'){
-        int i = 0;
-        while(filepath[i + 1] != '\0' && filepath[i + 1] != NULL){
-            filepath[i] = filepath[i + 1];
-            i++;
-        }
-        filepath[i] = '\0';
-    }
-    //// pathfile corrected
 
-    if(!exist(filepath))    printf("The file is not found");
-    else{
-        FILE *fff;
-        fff = fopen(filepath, "r+");
-        int line = 1;
-        int i = 0;
-        while(line < pos1){
-            fseek(fff, i, SEEK_SET);
-            if(fgetc(fff) == '\n'){
-                line++;
-                i++;
-            }
-            i++;
-        }
-        i += pos2;
-        char *str;
-        OpenClipboard(0);
-        HANDLE in = GetClipboardData(CF_TEXT);
-        str = (char*)in;
-        CloseClipboard();
-        fseek(fff, i, SEEK_SET);
-        fputs(str, fff);
-        fclose(fff);
-    }
-}
 
 int main()
 {
