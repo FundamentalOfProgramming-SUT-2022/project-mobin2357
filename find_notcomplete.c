@@ -454,6 +454,7 @@ void ppaste(char filepath[], int pos1, int pos2){
 
 
 int ffind(char path[], char str[], int mode){
+    if(!exist(path))    return -2;
     FILE *fff;
     fff = fopen(path, "r+");
     fseek(fff, 0, SEEK_END);
@@ -538,6 +539,9 @@ int ffind(char path[], char str[], int mode){
             fseek(fff, i, SEEK_SET);
         }
         return -1;
+    }
+    if(mode == 4){
+
     }
 }
 
