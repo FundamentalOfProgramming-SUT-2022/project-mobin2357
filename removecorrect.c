@@ -263,8 +263,7 @@ void cat(char filepath[]){
     fclose(fff);
 }
 
-//for this function I considered one \n at the end of lines
-//this one has bugs
+
 void rremove(char filepath[], int pos1, int pos2, int size, char f){
     if(filepath[0] == '"' && filepath[1] != '/'){
         int i = 0;
