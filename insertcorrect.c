@@ -652,9 +652,10 @@ void closing_pairs(char filepath[]){
         int i = 0;
         int line = 1;
         int pos = -1;
-        while(i < 100){
+        while(1){
             fseek(fff, i, SEEK_SET);
             c = fgetc(fff);
+            if(c == EOF)   break;
             pos++;
             if(pos == 0 && c == ' '){
                 rremove(filepath, line, pos, 1, 'f');
@@ -724,7 +725,7 @@ void closing_pairs(char filepath[]){
 int main()
 {
     char command[100];
- //   gets(command);
+    gets(command);
     //creatfile command
     if(Is_sub(command, "createfile --file ", 18) == 0){
         char path[100];
@@ -983,6 +984,16 @@ int main()
     }
 
 
+
+
+
+
+
+
+
+
+
+    /*
 
     char filepath[] = "ko.txt";
 
