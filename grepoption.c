@@ -2427,8 +2427,8 @@ int main()
             j++;
             fclose(fff);
         }
-        printf("%d", count);
     }
+
 /*
 
         char file[] = "fuf.txt";
